@@ -1,0 +1,16 @@
+<header>
+  <div class="container">
+    <a href="/"><img src="/public/images/logo.png" alt="The Tech Blog"></a>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        {{#if logged_in}}
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/logout">Logout</a></li>
+        {{else}}
+          <li><a href="/login">Login</a></li>
+        {{/if}}
+      </ul>
+    </nav>
+  </div>
+</header>
