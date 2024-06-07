@@ -1,4 +1,4 @@
-/* CSS styling */
+/* CSS styling for the Tech Blog */
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -28,11 +28,11 @@ header a {
 }
 
 header nav ul li a:hover {
-    text-decoration: underline;
-  }
-  
+  text-decoration: underline;
+}
+
 main {
-    padding: 2rem;
+  padding: 2rem;
 }
 
 header img {
