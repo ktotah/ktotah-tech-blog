@@ -27,16 +27,26 @@ header a {
   text-decoration: none;
 }
 
+header .logo-title {
+  display: flex;
+  align-items: center;
+}
+
+header .logo-title img {
+  height: 50px;
+  margin-right: 10px; /* Space between logo and title */
+}
+
+header .logo-title span {
+  font-size: 1.5rem; /* Adjust the size as needed */
+}
+
 header nav ul li a:hover {
   text-decoration: underline;
 }
 
 main {
   padding: 2rem;
-}
-
-header img {
-  height: 50px;
 }
 
 section {
