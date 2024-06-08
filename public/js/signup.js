@@ -1,24 +1,32 @@
-// Handle signup form submission
-const signupFormHandler = async (event) => {
+document.querySelector("#signup").addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const username = document.querySelector('#username').value.trim();
-  const email = document.querySelector('#email').value.trim();
-  const password = document.querySelector('#password').value.trim();
+  const username = document.querySelector("#signupUsername").value.trim();
+  const email = document.querySelector("#signupEmail").value.trim();
+  const password = document.querySelector("#signupPassword").value.trim();
 
-  if (username && email && password) {
-    const response = await fetch('/api/users/signup', {
-      method: 'POST',
-      body: JSON.stringify({ username, email, password }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-
-    if (response.ok) {
-      document.location.replace('/dashboard');
-    } else {
-      alert(response.statusText);
-    }
+  if (password.length < 8) {
+    alert("Password must be at least 8 characters long.");
+    return;
   }
-};
 
-document.querySelector('#signup-form').addEventListener('submit', signupFormHandler);
+  const userObj = {
+    username,
+    email,
+    password,
+  };
+
+  const response = await fetch("/api/users", {
+    method: "POST",
+    body: JSON.stringify(userObj),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (response.ok) {
+    document.location.replace("/dashboard");
+  } else {
+    alert("Failed to sign up.");
+  }
+});
