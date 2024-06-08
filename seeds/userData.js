@@ -3,22 +3,23 @@ const bcrypt = require('bcrypt');
 
 const userData = [
   {
-    username: 'user1',
-    email: 'user1@example.com',
-    password: bcrypt.hashSync('password123', 10),
+    username: 'HPotter',
+    email: 'harryp@hogwarts.edu',
+    password: bcrypt.hashSync('password123', 10), // Password is hashed before being stored
   },
   {
-    username: 'user2',
-    email: 'user2@example.com',
-    password: bcrypt.hashSync('password123', 10),
+    username: 'HGranger',
+    email: 'hermioneg@hogwarts.edu',
+    password: bcrypt.hashSync('password123', 10), // Password is hashed before being stored
   },
   {
-    username: 'user3',
-    email: 'user3@example.com',
-    password: bcrypt.hashSync('password123', 10),
+    username: 'RWeasley',
+    email: 'ronw@hogwarts.edu',
+    password: bcrypt.hashSync('password123', 10), // Password is hashed before being stored
   },
 ];
 
+// Bulk create users and apply hooks for password hashing
 const seedUsers = () => User.bulkCreate(userData, {
   individualHooks: true,
   returning: true,

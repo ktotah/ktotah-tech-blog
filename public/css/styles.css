@@ -8,7 +8,7 @@ body {
 }
 
 header {
-  background-color: #333;
+  background-color: #b980d4; /* Updated navbar background color */
   color: #fff;
   padding: 10px 0;
 }
@@ -33,12 +33,13 @@ header .logo-title {
 }
 
 header .logo-title img {
-  height: 50px;
+  height: 100px;
   margin-right: 10px; /* Space between logo and title */
 }
 
 header .logo-title span {
-  font-size: 1.5rem; /* Adjust the size as needed */
+  font-size: 2rem; /* Increase title size */
+  font-weight: bold; /* Make title bold */
 }
 
 header nav ul li a:hover {
@@ -68,13 +69,31 @@ nav ul li {
 }
 
 nav ul li a {
-  color: #fff;
+  color: #fff; /* Navbar text color */
   text-decoration: none;
   padding: 5px 10px;
   border-radius: 5px;
   transition: background 0.3s;
+  font-size: 1.25rem; /* Increase navbar text size */
 }
 
 nav ul li a:hover {
-  background: #575757;
+  background: #9b67b0; /* Slightly darker shade for hover effect */
+}
+
+/* Add borders to each post */
+.posts article {
+  border: 1px solid #ddd; /* Light grey border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 1rem; /* Space inside the border */
+  margin-bottom: 1rem; /* Space between posts */
+}
+
+.posts article h2 {
+  margin-top: 0; /* Remove top margin */
+  font-size: 1.5rem; /* Increase title size */
+}
+
+.posts article p {
+  margin: 0.5rem 0; /* Consistent spacing for paragraphs */
 }
