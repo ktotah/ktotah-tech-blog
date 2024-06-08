@@ -1,4 +1,4 @@
-/* CSS styling for the Wizarding Blog */
+/* CSS styling */
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -43,11 +43,15 @@ header .logo-title span {
 }
 
 header nav ul li a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 main {
-  padding: 2rem;
+    padding: 2rem;
+}
+
+header img {
+  height: 100px;
 }
 
 section {
@@ -56,6 +60,7 @@ section {
   margin-bottom: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
 }
 
 nav ul {
@@ -69,7 +74,7 @@ nav ul li {
 }
 
 nav ul li a {
-  color: #fff; /* Navbar text color */
+  color: #fff;
   text-decoration: none;
   padding: 5px 10px;
   border-radius: 5px;
