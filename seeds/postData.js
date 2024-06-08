@@ -1,29 +1,30 @@
 const { Post } = require('../models');
 
-const postData = [
+const postData = (users) => [
   {
-    title: 'Why MVC is so important',
-    content: 'MVC allows developers to maintain a true separation of concerns...',
-    user_id: 1, // HPotter's ID
+    title: 'Why Learning Potions is Important',
+    content: 'Potions allow wizards and witches to maintain a true mastery of magical substances...',
+    user_id: users.find(user => user.username === 'HPotter').id,
   },
   {
-    title: 'Authentication vs. Authorization',
-    content: 'There is a difference between authentication and authorization...',
-    user_id: 2, // HGranger's ID
+    title: 'Differences Between Hexes and Curses',
+    content: 'There is a difference between hexes and curses. Hexes are minor dark charms...',
+    user_id: users.find(user => user.username === 'HGranger').id,
   },
   {
-    title: 'Object-Relational Mapping',
-    content: 'I have really loved learning about ORMs. It has really simplified...',
-    user_id: 3, // RWeasley's ID
+    title: 'Apparition Tips and Tricks',
+    content: 'I have really loved learning about apparition. It has really simplified travel...',
+    user_id: users.find(user => user.username === 'RWeasley').id,
   },
   {
-    title: 'Levitation charm',
-    content: `It's LeviOsa, not LeviosA`,
-    user_id: 1, // HPotter's ID
+    title: 'Levitation Charm',
+    content: `It's LeviOsa, not LeviosA!`,
+    user_id: users.find(user => user.username === 'HGranger').id,
   }
 ];
 
-// Bulk create posts
-const seedPosts = () => Post.bulkCreate(postData);
+const seedPosts = async (users) => {
+  await Post.bulkCreate(postData(users));
+};
 
 module.exports = seedPosts;
