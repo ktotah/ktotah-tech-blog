@@ -1,20 +1,20 @@
 <header>
-    <div class="container">
-        <div class="logo-title">
-            <a href="/"><img src="/images/logo.png" alt="The Wizarding Blog"></a>
-            <span>The Wizarding Blog</span>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                {{#if logged_in}}
-                <li><a href="/dashboard">Dashboard</a></li>
-                <li><a href="/logout">Logout</a></li>
-                {{else}}
-                <li><a href="/login">Login</a></li>
-                <li><a href="/signup">Sign Up</a></li>
-                {{/if}}
-            </ul>
-        </nav>
+  <div class="container">
+    <div class="logo-title">
+      <a href="/"><img src="/images/logo.png" alt="The Wizarding Blog"></a>
+      <span>The Wizarding Blog</span>
     </div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        {{#if logged_in}}
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/logout" id="logout">Logout</a></li>
+        {{else}}
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Sign Up</a></li>
+        {{/if}}
+      </ul>
+    </nav>
+  </div>
 </header>

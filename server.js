@@ -1,8 +1,8 @@
 // Import necessary modules and dependencies
-const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const path = require('path');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
@@ -42,6 +42,7 @@ app.set('view engine', 'handlebars');
 // Middleware to parse JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
