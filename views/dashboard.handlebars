@@ -1,7 +1,7 @@
 {{> header}}
 <main>
   <div class="container">
-    <section>
+   <section>
       <h2>Create New Post</h2>
       <form id="newPostForm">
         <div class="form-group">
@@ -22,41 +22,13 @@
       <div class="card mb-3">
         <div class="card-body">
           <h3>{{title}}</h3>
-          <p>{{content}}</p>
+          <p>{{{content}}}</p>
           <p class="text-muted">Posted by {{user.username}} on {{createdAt}}</p>
-          <a href="#" class="edit-link btn btn-link" data-id="{{id}}">Edit</a>
+          <a href="/edit/{{id}}" class="edit-link btn btn-link">Edit</a>
           <a href="#" class="delete-link btn btn-link text-danger" data-id="{{id}}">Delete</a>
         </div>
       </div>
       {{/each}}
     </section>
-
-    <!-- Modal for Editing Posts -->
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="editModalLabel">Edit Post</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form id="editPostForm">
-              <div class="form-group">
-                <label for="editPostTitle">Post Title</label>
-                <input type="text" id="editPostTitle" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="editPostContent">Post Content</label>
-                <div id="editor" style="height: 300px;"></div>
-              </div>
-              <button type="submit" class="btn btn-primary">Save Changes</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </main>

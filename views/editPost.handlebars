@@ -1,0 +1,19 @@
+{{> header}}
+<main>
+  <div class="container">
+    <section>
+      <h2>Edit Post</h2>
+      <form id="editPostForm" data-id="{{id}}">
+        <div class="form-group">
+          <label for="editPostTitle">Post Title</label>
+          <input type="text" id="editPostTitle" class="form-control" required value="{{title}}">
+        </div>
+        <div class="form-group">
+          <label for="editPostContent">Post Content</label>
+          <textarea id="editPostContent" class="form-control" rows="5" required>{{content}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+      </form>
+    </section>
+  </div>
+</main>
