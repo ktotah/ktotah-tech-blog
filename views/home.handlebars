@@ -4,7 +4,7 @@
     {{#each posts}}
     <article>
       <h2><a href="/post/{{id}}">{{title}}</a></h2>
-      <p>{{content}}</p>
+      <div class="post-content">{{{content}}}</div>
       <p class="post-meta">Posted by <em>{{user.username}}</em> on {{format_date createdAt}}</p>
     </article>
     {{/each}}
