@@ -11,9 +11,9 @@ document.querySelector("#signup").addEventListener("submit", async (event) => {
   }
 
   const userObj = {
-    username,
-    email,
-    password,
+    username: document.querySelector("#signupUsername").value,
+    email: document.querySelector("#signupEmail").value,
+    password: document.querySelector("#signupPassword").value,
   };
 
   const response = await fetch("/api/users", {
@@ -25,8 +25,10 @@ document.querySelector("#signup").addEventListener("submit", async (event) => {
   });
 
   if (response.ok) {
-    document.location.replace("/dashboard");
+    console.log("Signed up successfully");
+    location.href = "/dashboard";
   } else {
-    alert("Failed to sign up.");
+    const result = await response.json();
+    alert(result.message || "Sign up failed, please try again!");
   }
 });

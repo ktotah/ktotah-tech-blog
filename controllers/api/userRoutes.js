@@ -14,9 +14,20 @@ router.post("/", async (req, res) => {
     req.session.save(() => {
       req.session.user_id = newUser.id;
       req.session.logged_in = true;
+
       res.status(201).json(newUser);
     });
   } catch (err) {
+    if (err.name === 'SequelizeUniqueConstraintError') {
+      if (err.errors[0].path === 'username') {
+        return res.status(400).json({ message: 'Username already in use, please try a different username' });
+      }
+      if (err.errors[0].path === 'email') {
+        return res.status(400).json({ message: 'Email already in use, please sign up with a different email' });
+      }
+    } else if (err.name === 'SequelizeValidationError') {
+      return res.status(400).json({ message: 'Password needs to have 8 characters if it\'s less than 8' });
+    }
     console.error(err);
     res.status(500).json(err);
   }
@@ -44,6 +55,7 @@ router.post("/login", async (req, res) => {
       req.session.logged_in = true;
       res.json({ user, message: "You are now logged in!" });
     });
+
   } catch (err) {
     res.status(400).json(err);
   }

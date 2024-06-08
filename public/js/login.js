@@ -1,12 +1,9 @@
 document.querySelector("#login").addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const email = document.querySelector("#loginEmail").value.trim();
-  const password = document.querySelector("#loginPassword").value.trim();
-
   const userObj = {
-    email,
-    password,
+    email: document.querySelector("#loginEmail").value,
+    password: document.querySelector("#loginPassword").value,
   };
 
   const response = await fetch("/api/users/login", {
@@ -18,8 +15,10 @@ document.querySelector("#login").addEventListener("submit", async (event) => {
   });
 
   if (response.ok) {
-    document.location.replace("/dashboard");
+    console.log("Logged in");
+    location.href = "/dashboard";
   } else {
-    alert("Failed to log in.");
+    const result = await response.json();
+    alert(result.message || "Login failed, please try again!");
   }
 });
