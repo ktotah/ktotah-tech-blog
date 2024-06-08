@@ -6,6 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
         window.quillInitialized = true;
     }
 
+    const newPostButton = document.getElementById('newPostButton');
+    const newPostForm = document.getElementById('newPostForm');
+
+    newPostButton.addEventListener('click', () => {
+        newPostButton.classList.add('d-none');
+        newPostForm.classList.remove('d-none');
+    });
+
     // Create new post
     document.getElementById('newPostForm').addEventListener('submit', async (event) => {
         event.preventDefault();

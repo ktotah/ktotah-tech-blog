@@ -2,8 +2,8 @@
 <main>
   <div class="container">
     <section>
-      <h2>Create New Post</h2>
-      <form id="newPostForm">
+      <button id="newPostButton" class="btn btn-primary mb-3">+ New Post</button>
+      <form id="newPostForm" class="d-none">
         <div class="form-group">
           <label for="postTitle">Post Title</label>
           <input type="text" id="postTitle" class="form-control" required>
@@ -23,7 +23,7 @@
         <div class="card-body">
           <h3>{{title}}</h3>
           {{{content}}}
-          <p class="text-muted">Posted by {{user.username}} on {{createdAt}}</p>
+          <p class="text-muted">Posted by {{user.username}} on {{format_date createdAt}}</p>
           <a href="/edit/{{id}}" class="edit-link btn btn-link" data-id="{{id}}">Edit</a>
           <a href="#" class="delete-link btn btn-link text-danger" data-id="{{id}}">Delete</a>
         </div>
