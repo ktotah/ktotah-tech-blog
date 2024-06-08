@@ -1,25 +1,38 @@
 {{> header}}
-<main>
-  <section class="post">
-    <h2>{{post.title}}</h2>
-    <p>{{post.content}}</p>
-    <p>Posted by {{post.user.username}} on {{format_date post.createdAt}}</p>
-    <section class="comments">
-      <h3>Comments</h3>
-      {{#each post.comments}}
-        <div class="comment">
-          <p>{{this.comment_text}}</p>
-          <p>Commented by {{this.user.username}} on {{format_date this.createdAt}}</p>
-        </div>
-      {{/each}}
-    </section>
-    {{#if logged_in}}
-    <form id="comment-form">
-      <textarea id="comment-text" name="comment_text" required></textarea>
-      <button type="submit">Submit Comment</button>
-    </form>
-    {{else}}
-    <p><a href="/login">Log in</a> to comment</p>
-    {{/if}}
+<main class="container">
+  <!-- Blog Post Template -->
+  <section class="post-details">
+    <h1>{{title}}</h1>
+    <div class="post-card">
+      <h3>{{title}}</h3>
+      <p class="post-meta">Posted by <em>{{user.username}}</em> on {{format_date createdAt}}</p>
+      <p>{{content}}</p>
+    </div>
   </section>
+
+  <!-- Comments Section -->
+  <section class="comments-section">
+    <div class="comments-header">
+      <h3>Comments</h3>
+    </div>
+    {{#each comments}}
+    <div class="comment">
+      <p>{{comment_text}}</p>
+      <p class="comment-meta"><em>Posted by {{user.username}} on {{format_date createdAt}}</em></p>
+    </div>
+    {{/each}}
+  </section>
+
+  <!-- Comment Form -->
+  {{#if logged_in}}
+  <section class="comment-form">
+    <form id="newComment">
+      <input id="hiddenPostId" type="hidden" value="{{id}}">
+      <textarea id="commentText" placeholder="Type your comment here..." required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+  {{/if}}
 </main>
+
+<script src="/js/comment.js"></script>

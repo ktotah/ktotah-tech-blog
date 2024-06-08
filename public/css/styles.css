@@ -48,6 +48,8 @@ header nav ul li a:hover {
 
 main {
   padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 header img {
@@ -178,4 +180,95 @@ nav ul li a:hover {
   margin-bottom: 1rem;
   text-align: left;
   font-size: 0.9rem;
+}
+
+/* Comments section styling */
+.comments-section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comments-header {
+  background-color: #b980d4;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 10px;
+}
+
+.comment {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.comment-meta {
+  color: #555;
+  font-style: italic;
+}
+
+/* Comment form styling */
+.comment-form {
+  margin-top: 20px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.comment-form button {
+  background-color: #b980d4;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.comment-form button:hover {
+  background-color: #6b21a8;
+}
+
+/* Navbar styling */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.logged-in-as {
+  margin-left: 20px;
+  font-style: italic;
+  color: #fff;
+}
+
+/* Post meta styling */
+.post-meta {
+  color: #555;
+  font-style: italic;
+}
+
+.posts article .post-meta {
+  margin-top: 10px;
+  font-style: italic;
+  color: #555;
 }

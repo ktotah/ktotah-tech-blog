@@ -1,13 +1,12 @@
 {{> header}}
-<main>
+<main class="container">
   <section class="posts">
     {{#each posts}}
-      <article>
-        <h2>{{this.title}}</h2>
-        <p>{{this.content}}</p>
-        <p class="posted-info">Posted by {{this.user.username}} on {{format_date this.createdAt}}</p>
-      </article>
+    <article>
+      <h2><a href="/post/{{id}}">{{title}}</a></h2>
+      <p>{{content}}</p>
+      <p class="post-meta">Posted by <em>{{user.username}}</em> on {{format_date createdAt}}</p>
+    </article>
     {{/each}}
   </section>
 </main>
-
