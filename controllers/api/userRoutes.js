@@ -1,7 +1,7 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const { User } = require("../../models");
-const bcrypt = require("bcrypt");
+const { User } = require('../../models');
+const bcrypt = require('bcrypt');
 
 // Create a new user
 router.post("/", async (req, res) => {
@@ -50,7 +50,7 @@ router.post("/login", async (req, res) => {
 });
 
 // Logout
-router.post("/logout", (req, res) => {
+router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
