@@ -76,7 +76,7 @@ nav ul li {
 }
 
 nav ul li a {
-  color: #fff;
+  color: #fff !important;
   text-decoration: none;
   padding: 5px 10px;
   border-radius: 5px;
@@ -244,6 +244,17 @@ nav {
   padding: 10px 20px;
 }
 
+.navbar {
+  background-color: #b980d4 !important;
+}
+
+.navbar-title a {
+  color: #fff !important;
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -255,10 +266,24 @@ nav {
   color: #fff;
 }
 
-.logged-in-as {
-  margin-left: 20px;
-  font-style: italic;
-  color: #fff;
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,<svg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'><path stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+  color: #fff !important;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  text-decoration: underline;
+}
+
+.navbar-collapse {
+  justify-content: flex-end;
 }
 
 /* Post meta styling */
@@ -280,4 +305,23 @@ nav {
 
 .delete-link {
   color: red;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  header .logo-title img {
+    height: 50px;
+  }
+
+  header .logo-title span {
+    font-size: 1.5rem;
+  }
+
+  .navbar-title a {
+    font-size: 1.5rem;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
 }
