@@ -1,18 +1,62 @@
 {{> header}}
 <main>
-  <section class="dashboard">
-    <h2>Your Dashboard</h2>
-    <button id="new-post-btn">+ New Post</button>
-    <section id="posts">
+  <div class="container">
+    <section>
+      <h2>Create New Post</h2>
+      <form id="newPostForm">
+        <div class="form-group">
+          <label for="postTitle">Post Title</label>
+          <input type="text" id="postTitle" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="postContent">Post Content</label>
+          <textarea id="postContent" class="form-control" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Create Post</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Your Posts</h2>
       {{#each posts}}
-        <article>
-          <h2>{{this.title}}</h2>
-          <p>{{this.content}}</p>
-          <p>Posted by {{this.user.username}} on {{format_date this.createdAt}}</p>
-          <button class="edit-btn" data-id="{{this.id}}">Edit</button>
-          <button class="delete-btn" data-id="{{this.id}}">Delete</button>
-        </article>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h3>{{title}}</h3>
+          <p>{{content}}</p>
+          <p class="text-muted">Posted by {{user.username}} on {{createdAt}}</p>
+          <a href="#" class="edit-link btn btn-link" data-id="{{id}}">Edit</a>
+          <a href="#" class="delete-link btn btn-link text-danger" data-id="{{id}}">Delete</a>
+        </div>
+      </div>
       {{/each}}
     </section>
-  </section>
+
+    <!-- Modal for Editing Posts -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editModalLabel">Edit Post</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="editPostForm">
+              <div class="form-group">
+                <label for="editPostTitle">Post Title</label>
+                <input type="text" id="editPostTitle" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="editPostContent">Post Content</label>
+                <div id="editor" style="height: 300px;"></div>
+              </div>
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </main>
