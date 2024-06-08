@@ -102,3 +102,11 @@ nav ul li a:hover {
 .posts article p {
   margin: 0.5rem 0; /* Consistent spacing for paragraphs */
 }
+
+/* Styling for posted by information */
+.posted-info {
+  font-size: 0.9rem; /* Smaller font size */
+  color: #666; /* Grey color */
+  margin-top: 10px;
+  font-style: italic;
+}
