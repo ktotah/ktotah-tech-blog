@@ -1,20 +1,22 @@
 {{> header}}
 <main>
+<!-- Login Form -->
 <section class="card text-center">
   <div class="card-body">
     <h2 class="card-title">Login</h2>
     <form id="login">
       <div class="card-text">
         <label for="loginEmail">Email</label>
-        <input type="email" placeholder="email" id="loginEmail" required/>
+        <input type="email" placeholder="email" id="loginEmail" required />
       </div>
       <div class="card-text">
         <label for="loginPassword">Password</label>
-        <input type="password" placeholder="password" id="loginPassword" required/>
+        <input type="password" placeholder="password" id="loginPassword" required />
       </div>
-      <button type="submit">Login!</button><br />
-      <a href="/signup">Sign-Up</a>
+      <div class="error-message" id="loginErrorMessage"></div>
+      <button>Login!</button><br />
     </form>
+    <p class="center-text">Don't have an account? <a href="/signup">Sign Up</a></p>
   </div>
 </section>
 <script src="/js/login.js"></script>

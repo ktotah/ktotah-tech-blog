@@ -86,6 +86,21 @@ nav ul li a:hover {
   background: #9b67b0;
 }
 
+.center-text {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.center-text a {
+  color: #6c63ff;
+  text-decoration: none;
+}
+
+.center-text a:hover {
+  text-decoration: underline;
+}
+
 /* Add borders to each post */
 .posts article {
   border: 1px solid #ddd;
