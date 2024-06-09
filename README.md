@@ -69,7 +69,7 @@ Your contributions are what make the community incredible. If you have an idea f
 
 ## Deployment
 
-This application is deployed on [Heroku](https://heroku.com/). You can access it at the link [here](https://DEPLOYEDLINK.herokuapp.com/).
+This application is deployed on [Heroku](https://heroku.com/). You can access it at the link [here](https://ktotah-tech-blog-36d9019d0158.herokuapp.com/).
 
 <br>
 Screenshot of the application:
