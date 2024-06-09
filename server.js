@@ -14,8 +14,8 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const hbs = exphbs.create({ helpers });
 
 const sess = {
-  secret: 'Super secret secret',
-  cookie: {},
+  secret: 'Super secret secret', 
+  cookie: { maxAge: 30 * 60 * 1000 }, // 30 minutes
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
@@ -35,6 +35,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Serve Quill files from node_modules
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
+
+// Check session route
+app.get('/api/checkSession', (req, res) => {
+  if (req.session.logged_in) {
+    res.json({ loggedIn: true });
+  } else {
+    res.json({ loggedIn: false });
+  }
+});
 
 app.use(routes);
 

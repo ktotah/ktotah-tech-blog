@@ -18,6 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('newPostForm').addEventListener('submit', async (event) => {
         event.preventDefault();
 
+        // Check session
+        const sessionCheck = await fetch('/api/checkSession').then(res => res.json());
+        if (!sessionCheck.loggedIn) {
+            alert('Your session has expired. Please log in again.');
+            window.location.href = '/login';
+            return;
+        }
+
         const title = document.getElementById('postTitle').value.trim();
         const content = window.quill.root.innerHTML.trim();
 
@@ -41,6 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Edit post
     document.querySelectorAll('.edit-link').forEach((button) => {
         button.addEventListener('click', async (event) => {
+            // Check session
+            const sessionCheck = await fetch('/api/checkSession').then(res => res.json());
+            if (!sessionCheck.loggedIn) {
+                alert('Your session has expired. Please log in again.');
+                window.location.href = '/login';
+                return;
+            }
+
             const id = event.target.getAttribute('data-id');
             const post = await fetch(`/api/posts/${id}`).then(res => res.json());
 
@@ -77,6 +93,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Delete post
     document.querySelectorAll('.delete-link').forEach((button) => {
         button.addEventListener('click', async (event) => {
+            // Check session
+            const sessionCheck = await fetch('/api/checkSession').then(res => res.json());
+            if (!sessionCheck.loggedIn) {
+                alert('Your session has expired. Please log in again.');
+                window.location.href = '/login';
+                return;
+            }
+
             const id = event.target.getAttribute('data-id');
 
             const response = await fetch(`/api/posts/${id}`, {

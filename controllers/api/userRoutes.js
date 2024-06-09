@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 const { User } = require('../../models');
 const bcrypt = require('bcrypt');
 
@@ -63,13 +63,9 @@ router.post("/login", async (req, res) => {
 
 // Logout
 router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
+  req.session.destroy(() => {
+    res.status(204).end();
+  });
 });
 
 module.exports = router;

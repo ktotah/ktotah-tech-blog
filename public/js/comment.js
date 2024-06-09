@@ -1,5 +1,13 @@
-document.querySelector("#newComment").addEventListener("submit", event => {
+document.querySelector("#newComment").addEventListener("submit", async (event) => {
   event.preventDefault();
+
+  // Check session
+  const sessionCheck = await fetch('/api/checkSession').then(res => res.json());
+  if (!sessionCheck.loggedIn) {
+    alert('Your session has expired. Please log in again.');
+    window.location.href = '/login';
+    return;
+  }
 
   const comment = {
     comment_text: document.querySelector("#commentText").value,
