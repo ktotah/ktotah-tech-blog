@@ -12,6 +12,7 @@ router.get('/', async (req, res) => {
           attributes: ['username'],
         },
       ],
+      order: [['createdAt', 'DESC']], // This line orders the posts by creation date in descending order
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
